@@ -1,0 +1,28 @@
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 28px;
+    .left {
+        color: white;
+        font-weight: bold;
+    }
+
+    .right {
+        display: flex;
+        gap: 60px;
+        color: white;
+        font-size: 16px;
+        
+        .item {
+            .active {
+                color: var(--primary);
+            }
+        }
+    }
+}
+
+
+a[href] {
+    color: white;
+}
