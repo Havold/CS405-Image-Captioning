@@ -1,15 +1,30 @@
 import { useEffect, useState } from 'react';
 import './sharpening.scss'
+import { makeRequest } from '../../axios';
 
 const Sharpening = () => {
   const [image, setImage] = useState(null);
+  const [sharpenedImage, setSharpenedImage] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleUploadFile = (e) => {
+  const handleUploadFile = async (e) => {
+    setIsLoading(true);
     const file = e.target.files[0];
     if (file) {
       file.preview = URL.createObjectURL(file);
       setImage(file);
+      
+      const formData = new FormData();
+      formData.append('image', file)
+
+      console.log(formData)
+      
+      const result = await makeRequest.post('/sharpening', formData).then(res => res.data.sharpened_image_url)
+      console.log(result)
+      setSharpenedImage(result);
     }
+    setIsLoading(false);
+
   };
 
   useEffect(() => {
@@ -37,7 +52,7 @@ const Sharpening = () => {
                 </div>
                 <div className="item">
                   <span>Sharpened Image</span>
-                  <img src={image.preview} alt="SharpenedImage" />
+                  {isLoading ? 'Loading...' : <img src={'http://localhost:5000' + sharpenedImage} alt="sharpenedImage" />}
                 </div>
               </div>
               <label htmlFor="uploadImage">Upload Image</label>

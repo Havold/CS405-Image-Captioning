@@ -46,7 +46,7 @@ const EdgeDetectors = () => {
                   <img src={image.preview} alt="originalImage" />
                 </div>
                 <div className="item">
-                  <span>Sharpened Image</span>
+                  <span>Edges Of Image</span>
                   <img src={image.preview} alt="SharpenedImage" />
                 </div>
               </div>
