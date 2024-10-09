@@ -1,15 +1,52 @@
 import { useEffect, useState } from "react";
+import { makeRequest } from "../../axios";
 import "./denoising.scss";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 const Denoising = () => {
   const [image, setImage] = useState(null);
+  const [noiseType, setNoiseType] = useState("sparkle-noise");
+  const [isLoading, setIsLoading] = useState(false);
+  const queryClient = useQueryClient();
+  const { isPending, error, data } = useQuery({
+    queryKey: ["denoise"],
+    queryFn: () => {
+      if (image) {
+        const formData = new FormData();
+        formData.append("image", image);
+        return makeRequest
+          .post("/denoising?type=" + noiseType, formData)
+          .then((res) => {
+            setIsLoading(false);
+            return res.data;
+          });
+      }
+      return null;
+    },
+  });
+
+  const mutation = useMutation({
+    mutationFn: (newImage) => {
+      newImage.preview = URL.createObjectURL(newImage);
+      setImage(newImage);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["denoise"] });
+    },
+  });
 
   const handleUploadFile = (e) => {
     const file = e.target.files[0];
+    console.log(file);
     if (file) {
-      file.preview = URL.createObjectURL(file);
-      setImage(file);
+      setIsLoading(true);
+      mutation.mutate(file);
     }
+  };
+
+  const handleChangeType = (e) => {
+    setNoiseType(e.target.value);
+    mutation.mutate(image);
   };
 
   useEffect(() => {
@@ -20,23 +57,6 @@ const Denoising = () => {
     };
   }, [image]);
 
-  const data = [
-    {
-      id: 1,
-      image: "/assets/images/picture-01.png",
-      name: "image",
-    },
-    {
-      id: 2,
-      image: "/assets/images/picture-01.png",
-      name: "image",
-    },
-    {
-      id: 3,
-      image: "/assets/images/picture-01.png",
-      name: "image",
-    },
-  ];
   return (
     <div className="denoising">
       <div className="container">
@@ -44,7 +64,19 @@ const Denoising = () => {
         <div className="content">
           <input type="file" id="uploadImage" onChange={handleUploadFile} />
           {!image ? (
-            <label htmlFor="uploadImage">Upload Image</label>
+            <div className="upload">
+              <label htmlFor="uploadImage">Upload Image</label>
+              <select
+                value={noiseType}
+                name="noiseType"
+                id="noiseType"
+                onChange={handleChangeType}
+              >
+                <option value="sparkle-noise">Sparkle Noise</option>
+                <option value="salt-pepper-noise">Salt And Pepper Noise</option>
+                <option value="gaussian-noise">Gaussian Noise</option>
+              </select>
+            </div>
           ) : (
             <div className="result">
               <div className="items">
@@ -52,20 +84,60 @@ const Denoising = () => {
                   <span>Original</span>
                   <img src={image.preview} alt="originalImage" />
                 </div>
-                <div className="item">
-                  <span>Noisy (Gaussian)</span>
-                  <img src={image.preview} alt="NoisyImage" />
-                </div>
-                <div className="item">
-                  <span>Denoised (Mean)</span>
-                  <img src={image.preview} alt="MeanDenoisedImage" />
-                </div>
-                <div className="item">
-                  <span>Denoised (Median)</span>
-                  <img src={image.preview} alt="MedianDenoisedImage" />
-                </div>
+                {error ? (
+                  "Something went wrong!"
+                ) : isLoading ? (
+                  "Loading... "
+                ) : (
+                  <>
+                    <div className="item">
+                      <span>
+                        Noisy (
+                        {noiseType === "sparkle-noise"
+                          ? "Sparkle"
+                          : noiseType === "salt-pepper-noise"
+                          ? "Salt & Pepper"
+                          : "Gaussian"}
+                        )
+                      </span>
+                      <img
+                        src={"http://localhost:5000" + data.noise_image_url}
+                        alt="NoisyImage"
+                      />
+                    </div>
+                    <div className="item">
+                      <span>Denoised (Mean)</span>
+                      <img
+                        src={
+                          "http://localhost:5000" + data.mean_filtered_image_url
+                        }
+                        alt="MeanDenoisedImage"
+                      />
+                    </div>
+                    <div className="item">
+                      <span>Denoised (Median)</span>
+                      <img
+                        src={
+                          "http://localhost:5000" +
+                          data.median_filtered_image_url
+                        }
+                        alt="MedianDenoisedImage"
+                      />
+                    </div>
+                  </>
+                )}
               </div>
               <label htmlFor="uploadImage">Upload Image</label>
+              <select
+                value={noiseType}
+                name="method"
+                id="method"
+                onChange={handleChangeType}
+              >
+                <option value="sparkle-noise">Sparkle Noise</option>
+                <option value="salt-pepper-noise">Salt And Pepper Noise</option>
+                <option value="gaussian-noise">Gaussian Noise</option>
+              </select>
             </div>
           )}
         </div>

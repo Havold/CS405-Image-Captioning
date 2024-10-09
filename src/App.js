@@ -4,9 +4,12 @@ import Home from "./pages/Home/Home";
 import Denoising from "./pages/Denoising/Denoising";
 import Sharpening from "./pages/Sharpening/Sharpening";
 import EdgeDetectors from "./pages/EdgeDetectors/EdgeDetectors";
-import './styles.scss'
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import "./styles.scss";
 
 function App() {
+  const queryClient = new QueryClient();
+
   const Layout = () => {
     return (
       <div className="layout">
@@ -41,9 +44,11 @@ function App() {
     },
   ]);
   return (
-    <div className="App">
-      <RouterProvider router={router} />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <RouterProvider router={router} />
+      </div>
+    </QueryClientProvider>
   );
 }
 
