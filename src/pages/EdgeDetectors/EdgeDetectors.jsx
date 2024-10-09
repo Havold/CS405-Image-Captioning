@@ -1,17 +1,50 @@
-import { useEffect, useState } from 'react';
-import './edgeDetectors.scss'
+import { useEffect, useState } from "react";
+import "./edgeDetectors.scss";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { makeRequest } from "../../axios";
 
 const EdgeDetectors = () => {
   const [image, setImage] = useState(null);
-  const [method, setMethod] = useState('sobel');
+  const [method, setMethod] = useState("sobel");
+  const [isLoading, setIsLoading] = useState(false);
+  const queryClient = useQueryClient();
+
+  const { isPending, error, data } = useQuery({
+    queryKey: ["edge"],
+    queryFn: () => {
+      const formData = new FormData()
+      formData.append('image', image)
+      return makeRequest.post("/edge-detectors?method="+ method, formData).then((res) => {
+        setIsLoading(false);
+        return res.data;
+      });
+    },
+  });
+  console.log(method)
+
+  const mutation = useMutation({
+    mutationFn: (newImage) => {
+      newImage.preview = URL.createObjectURL(newImage)
+      setImage(newImage)
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({queryKey: ['edge']})
+    }
+  })
 
   const handleUploadFile = (e) => {
     const file = e.target.files[0];
     if (file) {
-      file.preview = URL.createObjectURL(file);
-      setImage(file);
+      setIsLoading(true)
+      mutation.mutate(file)
     }
   };
+
+  const handleChangeMethod = (e) => {
+    setMethod(e.target.value)
+    mutation.mutate(image);
+  }
+  
 
   useEffect(() => {
     return () => {
@@ -21,7 +54,6 @@ const EdgeDetectors = () => {
     };
   }, [image]);
 
-  console.log(method)
 
   return (
     <div className="edgeDetectors">
@@ -30,9 +62,14 @@ const EdgeDetectors = () => {
         <div className="content">
           <input type="file" id="uploadImage" onChange={handleUploadFile} />
           {!image ? (
-            <div className='upload'>
+            <div className="upload">
               <label htmlFor="uploadImage">Upload Image</label>
-              <select value={method} name="method" id="method" onChange={(e) => setMethod(e.target.value)}>
+              <select
+                value={method}
+                name="method"
+                id="method"
+                onChange={handleChangeMethod}
+              >
                 <option value="sobel">Sobel</option>
                 <option value="prewitt">Prewitt</option>
                 <option value="canny">Canny</option>
@@ -45,13 +82,24 @@ const EdgeDetectors = () => {
                   <span>Original</span>
                   <img src={image.preview} alt="originalImage" />
                 </div>
-                <div className="item">
-                  <span>Edges Of Image</span>
-                  <img src={image.preview} alt="SharpenedImage" />
-                </div>
+                {error
+                  ? "Something went wrong!"
+                  : isLoading
+                  ? "Loading..."
+                  : Object.keys(data).map((imageName, index) => {
+                      return <div className="item" key={index}>
+                        <span>{imageName}</span>
+                        <img src={`http://localhost:5000` + data[imageName]} alt="EdgeImage" />
+                      </div>;
+                    })}
               </div>
               <label htmlFor="uploadImage">Upload Image</label>
-              <select value={method} name="method" id="method" onChange={(e) => setMethod(e.target.value)}>
+              <select
+                value={method}
+                name="method"
+                id="method"
+                onChange={handleChangeMethod}
+              >
                 <option value="sobel">Sobel</option>
                 <option value="prewitt">Prewitt</option>
                 <option value="canny">Canny</option>
@@ -62,6 +110,6 @@ const EdgeDetectors = () => {
       </div>
     </div>
   );
-}
+};
 
-export default EdgeDetectors
+export default EdgeDetectors;
