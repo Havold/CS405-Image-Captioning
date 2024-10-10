@@ -4,7 +4,7 @@ This application provides a user interface for image processing features such as
 
 ## 🌟 Features
 - **Home:** Displays the main page of the application.
-- **Denoising:** Provides various noise types (Sparkle, Salt and Pepper, Gaussian Noise) to image and image denoising functionality using 2 filters: Mean, Median Filter.
+- **Denoising:** Provides various noise types (Sparkle, Salt and Pepper, Gaussian) to image and image denoising functionality using 2 filters: Mean, Median Filter.
 - **Sharpening:** Sharpens images with adjustable sharpening levels.
 - **Edge Detectors:** Detects image edges using Sobel, Prewitt, and Canny methods.
 
@@ -54,7 +54,7 @@ Before running the application, ensure you have the following installed:
 
 ## 🌟 Tính năng
 - **Trang chủ:** Hiển thị trang chủ của ứng dụng.
-- **Denoising:** Cung cấp tính năng thêm các loại nhiễu khác nhau (Sparkle, Salt and Pepper, Gaussian Noise) vào ảnh và giảm nhiễu ảnh bằng 2 bộ lọc: Bộ lọc trung bình (Mean), bộ lọc trung vị (Median).
+- **Denoising:** Cung cấp tính năng thêm các loại nhiễu khác nhau (Sparkle, Salt and Pepper, Gaussian) vào ảnh và giảm nhiễu ảnh bằng 2 bộ lọc: Bộ lọc trung bình (Mean), bộ lọc trung vị (Median).
 - **Sharpening:** Làm nét ảnh với mức độ làm nét có thể tùy chỉnh.
 - **EdgeDetectors:** Phát hiện cạnh của ảnh sử dụng các phương pháp Sobel, Prewitt, và Canny.
 
