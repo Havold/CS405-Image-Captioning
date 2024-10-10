@@ -33,7 +33,7 @@ Before running the application, ensure you have the following installed:
 4. Open your browser and go to `http://localhost:3000` to view the application.
 
 ## ⚠️ Important Notice
-- This project needs a Back-end to process the input image, to be able to run the BE, I suggest you check out my BE project here: https://github.com/Havold/CS406-Lab03-BE
+- This project needs a Backend to process the input image, to be able to run the BE, I suggest you check out my BE project here: https://github.com/Havold/CS406-Lab03-BE
 
 ## Tech Stack
 - **React**: Front-end framework for building user interfaces.
@@ -83,7 +83,7 @@ Trước khi chạy ứng dụng, hãy đảm bảo bạn đã cài đặt:
 4. Mở trình duyệt và truy cập vào `http://localhost:3000` để xem ứng dụng.
 
 ## ⚠️ Lưu ý quan trọng
-- Ứng dụng này cần phải có Back-end xử lý ảnh đầu vào, để có thể chạy được phẩn Backend, tôi đề xuất bạn nên xem qua dự án BE của tôi ở đây: https://github.com/Havold/CS406-Lab03-BE
+- Ứng dụng này cần phải có Backend xử lý ảnh đầu vào, để có thể chạy được phẩn BE, tôi đề xuất bạn nên xem qua dự án BE của tôi ở đây: https://github.com/Havold/CS406-Lab03-BE
 
 ## Công nghệ sử dụng
 - **React**: Framework front-end để xây dựng giao diện người dùng.
