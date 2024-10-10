@@ -66,8 +66,8 @@ Trước khi chạy ứng dụng, hãy đảm bảo bạn đã cài đặt:
 ## 🚀 Bắt đầu thôi!
 1. Clone dự án về máy:
     ```
-    git clone [<repository-url>](https://github.com/Havold/CS406-Lab02-FE.git)
-    cd CS406-Lab02-FE
+    git clone https://github.com/Havold/CS406-Lab03-FE.git
+    cd CS406-Lab03-FE
     ```
 
 2. Cài đặt các dependencies:
