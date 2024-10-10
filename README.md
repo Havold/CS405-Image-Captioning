@@ -1,6 +1,6 @@
 # 📷 Image Enhancing, Processing Web Application
 
-This application provides a user interface for image processing features such as sharpening, denoising, and edge detection. It is built with React, using React Router for navigation and @tanstack/react-query for state management and data fetching. The interface includes two main pages: Home, Denoising, Sharpening, and EdgeDetectors Page.
+This application provides a user interface for image processing features such as sharpening, denoising, and edge detection. It is built with React, using React Router for navigation and @tanstack/react-query for state management and data fetching. The interface includes four main pages: Home, Denoising, Sharpening, and EdgeDetectors Page.
 
 ## 🌟 Features
 - **Home:** Displays the main page of the application.
@@ -14,25 +14,6 @@ Before running the application, ensure you have the following installed:
 - Node.js 20.17.0 __(Recommend)__
 
 ## 🚀 Getting Started
-
-### Backend
-1. Clone the repository to your local machine:
-```
-git clone https://github.com/Havold/CS406-Lab03-BE.git
-cd CS406-Lab03-BE
-```
-2. Install the dependencies:
-```
-pip install -r requirements.txt
-```
-3. Set up the directory structure:
-  - For details I suggest you check out my BE project: https://github.com/Havold/CS406-Lab02-BE-Raw
-4. Run the backend application:
-```
-python app.py
-```
-
-### Frontend
 1. Clone the repository to your local machine:
     ```
     git clone https://github.com/Havold/CS406-Lab03-FE.git
@@ -52,7 +33,7 @@ python app.py
 4. Open your browser and go to `http://localhost:3000` to view the application.
 
 ## ⚠️ Important Notice
-- To be able to run the Backend, I suggest you check out my BE project here: https://github.com/Havold/CS406-Lab03-BE
+- This project needs a Back-end to process the input image, to be able to run the BE, I suggest you check out my BE project here: https://github.com/Havold/CS406-Lab03-BE
 
 ## Tech Stack
 - **React**: Front-end framework for building user interfaces.
@@ -66,15 +47,16 @@ python app.py
 - `/sharpening`: Sharpening feature.
 - `/edge-detectors`: Edge detection feature.
 ----------------------------------------------------------------------------------------
-# 😎 Ứng dụng web so sánh hình ảnh dựa trên giá trị histogram
+# 📷 Ứng Dụng Web Xử lý, Cải Thiện Ảnh 
 
-Trang web này cho phép người dùng tải lên một bức ảnh và so sánh nó với các ảnh khác để tìm ra những bức ảnh tương tự. Giao diện bao gồm hai trang chính: Trang chính (`Home`) và Trang kết quả (`Result`).
+Ứng dụng này cung cấp giao diện người dùng cho các tính năng xử lý ảnh như làm nét (sharpening), giảm nhiễu (denoising), và phát hiện cạnh (edge detection). Ứng dụng được xây dựng bằng React, sử dụng React Router để điều hướng và @tanstack/react-query để quản lý trạng thái và lấy dữ liệu. Giao diện bao gồm 4 trang chính: Trang chủ, trang Denoising, trang Sharpening, và trang EdgeDetectors.
+
 
 ## 🌟 Tính năng
-- Tải lên ảnh để so sánh.
-- Sử dụng cân bằng histogram (`equalizeHist`) để tăng độ chính xác trong việc so sánh.
-- Chọn số lượng ảnh tương tự muốn hiển thị (top 5 hoặc top 10).
-- Hiển thị kết quả so sánh các ảnh tương tự.
+- **Trang chủ:** Hiển thị trang chủ của ứng dụng.
+- **Denoising:** Cung cấp tính năng giảm nhiễu ảnh bằng 2 bộ lọc: Bộ lọc trung bình (Mean), bộ lọc trung vị (Median).
+- **Sharpening:** Làm nét ảnh với mức độ làm nét có thể tùy chỉnh.
+- **EdgeDetectors:** Phát hiện cạnh của ảnh sử dụng các phương pháp Sobel, Prewitt, và Canny.
 
 ## 🛠️ Requirements
 
@@ -82,25 +64,6 @@ Trước khi chạy ứng dụng, hãy đảm bảo bạn đã cài đặt:
 - Node.js 20.17.0 __(Recommend)__
 
 ## 🚀 Bắt đầu thôi!
-
-### Backend
-1. Clone dự án backend về máy:
-```
-git clone https://github.com/Havold/CS406-Lab02-BE-Raw.git
-cd CS406-Lab02-BE-Raw
-```
-2. Cài đặt các dependencies:
-```
-pip install -r requirements.txt
-```
-3. Cấu trúc thư mục:
-   - Để chi tiết tôi đề xuất bạn nên xem qua dự án BE của tôi: https://github.com/Havold/CS406-Lab02-BE-Raw
-4. Chạy ứng dụng backend:
-```
-python app.py
-```
-
-### Frontend
 1. Clone dự án về máy:
     ```
     git clone [<repository-url>](https://github.com/Havold/CS406-Lab02-FE.git)
@@ -120,4 +83,16 @@ python app.py
 4. Mở trình duyệt và truy cập vào `http://localhost:3000` để xem ứng dụng.
 
 ## ⚠️ Lưu ý quan trọng
-- Để có thể chạy được phẩn Backend, tôi đề xuất bạn nên xem qua dự án BE của tôi ở đây: https://github.com/Havold/CS406-Lab02-BE-Raw
+- Ứng dụng này cần phải có Back-end xử lý ảnh đầu vào, để có thể chạy được phẩn Backend, tôi đề xuất bạn nên xem qua dự án BE của tôi ở đây: https://github.com/Havold/CS406-Lab03-BE
+
+## Công nghệ sử dụng
+- **React**: Framework front-end để xây dựng giao diện người dùng.
+- **React Router**: Quản lý điều hướng giữa các trang.
+- **@tanstack/react-query**: Quản lý trạng thái máy chủ và lấy dữ liệu.
+- **SCSS**: Để tạo kiểu dáng cho ứng dụng.
+
+## Các Route
+- `/`: Trang chủ
+- `/denoising`: Tính năng làm giảm nhiễu ảnh.
+- `/sharpening`: Tính năng làm mượt ảnh.
+- `/edge-detectors`: Tính năng phát hiện cạnh.
