@@ -1,70 +1,123 @@
-# Getting Started with Create React App
+# 📷 Image Enhancing, Processing Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application provides a user interface for image processing features such as sharpening, denoising, and edge detection. It is built with React, using React Router for navigation and @tanstack/react-query for state management and data fetching. The interface includes two main pages: Home, Denoising, Sharpening, and EdgeDetectors Page.
 
-## Available Scripts
+## 🌟 Features
+- **Home:** Displays the main page of the application.
+- **Denoising:** Provides image denoising functionality using 2 filters: Mean, Median Filter.
+- **Sharpening:** Sharpens images with adjustable sharpening levels.
+- **Edge Detectors:** Detects image edges using Sobel, Prewitt, and Canny methods.
 
-In the project directory, you can run:
+## 🛠️ System Requirements
 
-### `npm start`
+Before running the application, ensure you have the following installed:
+- Node.js 20.17.0 __(Recommend)__
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+1. Clone the repository to your local machine:
+```
+git clone https://github.com/Havold/CS406-Lab03-BE.git
+cd CS406-Lab03-BE
+```
+2. Install the dependencies:
+```
+pip install -r requirements.txt
+```
+3. Set up the directory structure:
+  - For details I suggest you check out my BE project: https://github.com/Havold/CS406-Lab02-BE-Raw
+4. Run the backend application:
+```
+python app.py
+```
 
-### `npm test`
+### Frontend
+1. Clone the repository to your local machine:
+    ```
+    git clone https://github.com/Havold/CS406-Lab03-FE.git
+    cd CS406-Lab03-FE
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install the dependencies:
+    ```
+    npm install
+    ```
 
-### `npm run build`
+3. Start the application:
+    ```
+    npm start
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Open your browser and go to `http://localhost:3000` to view the application.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚠️ Important Notice
+- To be able to run the Backend, I suggest you check out my BE project here: https://github.com/Havold/CS406-Lab03-BE
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
+- **React**: Front-end framework for building user interfaces.
+- **React Router**: For managing navigation between pages.
+- **@tanstack/react-query**: For managing server state and data fetching.
+- **SCSS**: For styling the application.
 
-### `npm run eject`
+## Routes
+- `/`: Home page.
+- `/denoising`: Denoising feature.
+- `/sharpening`: Sharpening feature.
+- `/edge-detectors`: Edge detection feature.
+----------------------------------------------------------------------------------------
+# 😎 Ứng dụng web so sánh hình ảnh dựa trên giá trị histogram
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Trang web này cho phép người dùng tải lên một bức ảnh và so sánh nó với các ảnh khác để tìm ra những bức ảnh tương tự. Giao diện bao gồm hai trang chính: Trang chính (`Home`) và Trang kết quả (`Result`).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🌟 Tính năng
+- Tải lên ảnh để so sánh.
+- Sử dụng cân bằng histogram (`equalizeHist`) để tăng độ chính xác trong việc so sánh.
+- Chọn số lượng ảnh tương tự muốn hiển thị (top 5 hoặc top 10).
+- Hiển thị kết quả so sánh các ảnh tương tự.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🛠️ Requirements
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Trước khi chạy ứng dụng, hãy đảm bảo bạn đã cài đặt:
+- Node.js 20.17.0 __(Recommend)__
 
-## Learn More
+## 🚀 Bắt đầu thôi!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Backend
+1. Clone dự án backend về máy:
+```
+git clone https://github.com/Havold/CS406-Lab02-BE-Raw.git
+cd CS406-Lab02-BE-Raw
+```
+2. Cài đặt các dependencies:
+```
+pip install -r requirements.txt
+```
+3. Cấu trúc thư mục:
+   - Để chi tiết tôi đề xuất bạn nên xem qua dự án BE của tôi: https://github.com/Havold/CS406-Lab02-BE-Raw
+4. Chạy ứng dụng backend:
+```
+python app.py
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Frontend
+1. Clone dự án về máy:
+    ```
+    git clone [<repository-url>](https://github.com/Havold/CS406-Lab02-FE.git)
+    cd CS406-Lab02-FE
+    ```
 
-### Code Splitting
+2. Cài đặt các dependencies:
+    ```
+    npm install
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. Chạy ứng dụng:
+    ```
+    npm start
+    ```
 
-### Analyzing the Bundle Size
+4. Mở trình duyệt và truy cập vào `http://localhost:3000` để xem ứng dụng.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ⚠️ Lưu ý quan trọng
+- Để có thể chạy được phẩn Backend, tôi đề xuất bạn nên xem qua dự án BE của tôi ở đây: https://github.com/Havold/CS406-Lab02-BE-Raw
