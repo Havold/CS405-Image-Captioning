@@ -11,7 +11,9 @@ const Home = () => {
         <div className="right">
           <h1>IMAGE PROCESSING</h1>
           <span>is our specialist</span>
-          <button>Get Started</button>
+          <Link to="/denoising">
+            <button>Get Started</button>
+          </Link>
         </div>
       </div>
       <div className="center">
@@ -43,7 +45,9 @@ const Home = () => {
               Reduces noise in images by softening pixel variations, resulting
               in smoother textures and improved overall image quality.
             </p>
-            <Link to='/denoising'><button>Try it now!</button></Link>
+            <Link to="/denoising">
+              <button>Try it now!</button>
+            </Link>
           </div>
           <div className="item">
             <img src="/assets/images/facility-02.png" alt="facility-02" />
@@ -52,7 +56,9 @@ const Home = () => {
               Enhances image definition by sharpening edges and fine details,
               making objects and textures appear clearer and more distinct.
             </p>
-            <Link to='/sharpening'><button>Try it now!</button></Link>
+            <Link to="/sharpening">
+              <button>Try it now!</button>
+            </Link>
           </div>
           <div className="item">
             <img src="/assets/images/facility-03.png" alt="facility-03" />
@@ -62,7 +68,9 @@ const Home = () => {
               like Sobel, Prewitt, and Canny, helping to emphasize object shapes
               and structural details.
             </p>
-            <Link to='/edge-detectors'><button>Try it now!</button></Link>
+            <Link to="/edge-detectors">
+              <button>Try it now!</button>
+            </Link>
           </div>
         </div>
       </div>
