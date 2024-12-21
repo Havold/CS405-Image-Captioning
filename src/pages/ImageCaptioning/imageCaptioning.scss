@@ -1,0 +1,103 @@
+.imageCaptioning {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    position: relative;
+    background-color: white;
+    width: 90%;
+    height: 90%;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 4px 37px 2px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 1px 4px 37px 2px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 1px 4px 37px 2px rgba(255, 255, 255, 0.5);
+
+    h1 {
+      position: absolute;
+      color: var(--primary);
+      top: 20px;
+    }
+
+    .content {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+
+      input {
+        display: none;
+      }
+
+      label {
+        background-color: var(--primary);
+        padding: 14px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      select {
+        width: fit-content;
+        border: 1px solid var(--primary);
+        outline: 1px solid var(--primary);
+        color: var(--primary);
+        padding: 8px;
+        border-radius: 6px;
+      }
+
+      .upload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .result {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+
+        .items {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          .item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            span {
+              font-size: 18px;
+              text-align: center;
+            }
+
+            img {
+              width: 80%;
+              border-radius: 8px;
+            }
+          }
+        }
+
+        label {
+          width: fit-content;
+        }
+      }
+    }
+  }
+}

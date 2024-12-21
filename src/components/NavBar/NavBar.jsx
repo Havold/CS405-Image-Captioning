@@ -12,24 +12,12 @@ const NavBar = () => {
       </div>
       <div className="right">
         <div className="item">
-          <Link to="/denoising">
+          <Link to="/image-captioning">
             <span className={site === "denoising" ? `active` : ``}>
-              Denoising
+              Image captioning
             </span>
           </Link>
         </div>
-        <div className="item">
-          <Link to="/sharpening">
-            <span className={site === "sharpening" ? `active` : ``}>
-              Sharpening
-            </span>
-          </Link>
-        </div>
-        <Link to="/edge-detectors">
-          <div className="item">
-            <span className={site === "edge-detectors" ? `active` : ``}>Edge Detectors</span>
-          </div>
-        </Link>
       </div>
     </div>
   );

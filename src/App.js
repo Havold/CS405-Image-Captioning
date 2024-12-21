@@ -1,12 +1,10 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./pages/Home/Home";
-import Denoising from "./pages/Denoising/Denoising";
-import Sharpening from "./pages/Sharpening/Sharpening";
-import EdgeDetectors from "./pages/EdgeDetectors/EdgeDetectors";
+
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import "./styles.scss";
-
+import ImageCaptioning from "./pages/ImageCaptioning/ImageCaptioning";
 function App() {
   const queryClient = new QueryClient();
 
@@ -29,16 +27,8 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/denoising",
-          element: <Denoising />,
-        },
-        {
-          path: "/sharpening",
-          element: <Sharpening />,
-        },
-        {
-          path: "/edge-detectors",
-          element: <EdgeDetectors />,
+          path: "/image-captioning",
+          element: <ImageCaptioning />,
         },
       ],
     },

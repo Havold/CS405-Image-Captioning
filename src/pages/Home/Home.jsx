@@ -9,9 +9,9 @@ const Home = () => {
           <img src="/assets/images/picture-03.png" alt="picture-01" />
         </div>
         <div className="right">
-          <h1>IMAGE PROCESSING</h1>
+          <h1>IMAGE CAPTIONING</h1>
           <span>is our specialist</span>
-          <Link to="/denoising">
+          <Link to="/image-captioning">
             <button>Get Started</button>
           </Link>
         </div>
@@ -20,15 +20,14 @@ const Home = () => {
         <div className="left">
           <h1>About us</h1>
           <p>
-            Welcome to our image processing platform, where we provide
-            cutting-edge tools for enhancing and refining your images. Whether
-            you're looking to reduce noise with smoothing techniques, sharpen
-            details, or apply powerful edge detection algorithms like Sobel,
-            Prewitt, and Canny, we have the solutions you need. Our mission is
-            to make complex image processing accessible to everyone, from
-            hobbyists to professionals, through an easy-to-use interface. Join
-            us in transforming your images with precision and clarity, powered
-            by advanced technology.
+            Welcome to our platform dedicated to advancing the field of Image
+            Captioning, where we integrate state-of-the-art models to bridge the
+            gap between vision and language. Our focus lies in exploring and
+            leveraging cutting-edge model combinations. Our mission is to make
+            the art of Image Captioning accessible and impactful, whether you're
+            creating captions for accessibility, media, or creative
+            storytelling. Dive into the world of AI-driven insights and redefine
+            how images and words come together!
           </p>
         </div>
         <div className="right">
@@ -36,39 +35,41 @@ const Home = () => {
         </div>
       </div>
       <div className="bottom">
-        <h1>Our Facilities</h1>
+        <h1>Our Model</h1>
         <div className="items">
           <div className="item">
             <img src="/assets/images/facility-01.png" alt="facility-01" />
-            <h3>Denoising</h3>
+            <h3>CLIP + mT5</h3>
             <p>
-              Reduces noise in images by softening pixel variations, resulting
-              in smoother textures and improved overall image quality.
+              Harnessing the robust visual encoding of CLIP and the multilingual
+              text generation capabilities of mT5, this combination excels in
+              producing diverse and accurate captions in multiple languages.
             </p>
-            <Link to="/denoising">
+            <Link to="/image-captioning?model=clip-mt5">
               <button>Try it now!</button>
             </Link>
           </div>
           <div className="item">
             <img src="/assets/images/facility-02.png" alt="facility-02" />
-            <h3>Sharpening</h3>
+            <h3>CLIP + mBART</h3>
             <p>
-              Enhances image definition by sharpening edges and fine details,
-              making objects and textures appear clearer and more distinct.
+              By pairing CLIP with mBART, we enable enhanced cross-lingual
+              understanding, allowing for contextually rich and culturally aware
+              captions tailored to various global audiences.
             </p>
-            <Link to="/sharpening">
+            <Link to="/image-captioning?model=clip-mbart">
               <button>Try it now!</button>
             </Link>
           </div>
           <div className="item">
             <img src="/assets/images/facility-03.png" alt="facility-03" />
-            <h3>Edge Detectors</h3>
+            <h3>CLIP + PhoGPT</h3>
             <p>
-              Detects and highlights boundaries within an image using algorithms
-              like Sobel, Prewitt, and Canny, helping to emphasize object shapes
-              and structural details.
+              For Vietnamese-specific use cases, CLIP and PhoGPT work seamlessly
+              to generate high-quality captions that are linguistically precise
+              and contextually relevant.
             </p>
-            <Link to="/edge-detectors">
+            <Link to="/image-captioning?model=clip-phogpt">
               <button>Try it now!</button>
             </Link>
           </div>
