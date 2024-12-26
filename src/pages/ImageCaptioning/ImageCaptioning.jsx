@@ -41,6 +41,7 @@ const ImageCaptioning = () => {
     const file = e.target.files[0];
     console.log(file);
     if (file) {
+      setImage(null);
       setIsLoading(true);
       mutation.mutate(file);
     }
@@ -48,6 +49,7 @@ const ImageCaptioning = () => {
 
   const handleChangeType = (e) => {
     setModel(e.target.value);
+    setIsLoading(true);
     mutation.mutate(image);
   };
 
@@ -84,15 +86,15 @@ const ImageCaptioning = () => {
               <div className="items">
                 <div className="item">
                   <span>Input Image</span>
-                  <img src={image.preview} alt="originalImage" />
+                  {<img src={image.preview} alt="originalImage" />}
                 </div>
                 {error ? (
                   "Something went wrong!"
                 ) : isLoading ? (
-                  "Loading... "
+                  <div className="circle-loading"></div>
                 ) : (
                   <>
-                    <span>{data.caption}</span>
+                    <span className="caption">{data.caption}</span>
                   </>
                 )}
               </div>

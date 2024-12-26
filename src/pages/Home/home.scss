@@ -1,12 +1,11 @@
 .home {
-  background-image: url('../../../public/assets/images/texture.png');
+  background-image: url("../../../public/assets/images/texture.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  mix-blend-mode:lighten ; /* Pha trộn các ngôi sao và loại bỏ nền đen */
+  mix-blend-mode: lighten; /* Pha trộn các ngôi sao và loại bỏ nền đen */
 
-  
   .top {
     display: flex;
     align-items: center;
@@ -20,7 +19,6 @@
         width: 80%;
         object-fit: cover;
         height: 500px;
-        
       }
     }
 
@@ -52,11 +50,13 @@
         color: white;
         cursor: pointer;
         text-align: center;
-        box-shadow: 1px 4px 37px 2px #d63b8a;   
-        -webkit-box-shadow: 1px 4px 37px 2px #d63b8a;   
-        -moz-box-shadow: 1px 4px 37px 2px #d63b8a;   
+        box-shadow: 1px 4px 37px 2px #d63b8a;
+        -webkit-box-shadow: 1px 4px 37px 2px #d63b8a;
+        -moz-box-shadow: 1px 4px 37px 2px #d63b8a;
+        animation: reverseBubble 1.5s forwards;
         &:hover {
           background-color: #d0418b;
+          animation: bubble 1.5s forwards; /* Ánh xạ hiệu ứng */
         }
       }
     }
@@ -74,7 +74,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      text-shadow: 4px 4px 7px rgba(0,0,0,1);
+      text-shadow: 4px 4px 7px rgba(0, 0, 0, 1);
 
       h1 {
         margin-left: 80px;
@@ -105,50 +105,70 @@
     gap: 40px;
 
     h1 {
-        color: var(--primary-text);
+      color: var(--primary-text);
     }
     .items {
+      display: flex;
+      .item {
+        flex: 1;
         display: flex;
-        .item {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
 
-            img {
-                width: 70%;
-                height: 300px;
-                object-fit: contain;
-            }
-
-            h3 {
-                color: var(--primary-text);
-                font-size: 20px;
-            }
-            
-            p {
-                text-align: center;
-                font-size: 14px;
-                width: 64%;
-            }
-
-            button {
-                padding: 8px;
-                border-radius: 4px;
-                font-size: 18px;
-                font-weight: 600;
-                color: var(--primary-text);
-                background: transparent;
-                border: 3px solid var(--primary-text);
-                cursor: pointer;
-
-                &:hover {
-                    opacity: 0.7;
-                }
-            }
+        img {
+          width: 70%;
+          height: 300px;
+          object-fit: contain;
         }
+
+        h3 {
+          color: var(--primary-text);
+          font-size: 20px;
+        }
+
+        p {
+          text-align: center;
+          font-size: 14px;
+          width: 64%;
+        }
+
+        button {
+          padding: 8px;
+          border-radius: 4px;
+          font-size: 18px;
+          font-weight: 600;
+          color: var(--primary-text);
+          background: transparent;
+          border: 3px solid var(--primary-text);
+          cursor: pointer;
+          animation: reverseBubble 1.5s forwards; /* Ánh xạ hiệu ứng */
+
+          &:hover {
+            opacity: 0.7;
+            animation: bubble 1.5s forwards; /* Ánh xạ hiệu ứng */
+          }
+        }
+      }
     }
+  }
+}
+
+@keyframes reverseBubble {
+  0% {
+    transform: scale(1.2); /* Bắt đầu với kích thước ban đầu */
+  }
+  100% {
+    transform: scale(1); /* Quay lại kích thước ban đầu */
+  }
+}
+
+@keyframes bubble {
+  0% {
+    transform: scale(1); /* Bắt đầu với kích thước ban đầu */
+  }
+  100% {
+    transform: scale(1.2); /* Quay lại kích thước ban đầu */
   }
 }

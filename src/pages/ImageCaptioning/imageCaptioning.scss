@@ -44,6 +44,11 @@
         color: white;
         cursor: pointer;
         text-align: center;
+        animation: reverseBubble 1.5s forwards; /* Ánh xạ hiệu ứng */
+
+        &:hover {
+          animation: bubble 1.5s forwards; /* Ánh xạ hiệu ứng */
+        }
       }
 
       select {
@@ -72,7 +77,50 @@
         .items {
           display: flex;
           flex-direction: column;
+          align-items: center;
           gap: 20px;
+
+          .caption {
+            width: fit-content;
+            white-space: nowrap;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+            padding: 0 6px;
+
+            // animation: typing 2s steps(20),
+            //   cursor 0.4s step-end infinite alternate;
+          }
+
+          .caption::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-left: 2px solid var(--primary);
+            background-color: white;
+            animation: typing 2s steps(20) forwards,
+              cursor 0.4s step-end infinite alternate;
+          }
+
+          @keyframes typing {
+            100% {
+              left: 99%;
+            }
+          }
+          @keyframes cursor {
+            50% {
+              border-color: transparent;
+            }
+          }
+
+          // // typing effect
+          // @keyframes typing {
+          //   from {
+          //     width: 0;
+          //   }
+          // }
 
           .item {
             flex: 1;
@@ -88,8 +136,18 @@
             }
 
             img {
-              width: 80%;
+              width: 400px;
+              height: 260px;
+              object-fit: cover;
               border-radius: 8px;
+              transform: scale(0); /* Bắt đầu với kích thước bằng 0 */
+              animation: pulse 0.8s forwards; /* Ánh xạ hiệu ứng phóng to */
+            }
+
+            @keyframes grow {
+              to {
+                transform: scale(1); /* Kết thúc với kích thước ban đầu */
+              }
             }
           }
         }
@@ -99,5 +157,26 @@
         }
       }
     }
+  }
+}
+
+.circle-loading {
+  justify-self: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background-color: var(--primary);
+  animation: pulse 1.5s infinite; /* Ánh xạ hiệu ứng */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Bắt đầu với kích thước ban đầu */
+  }
+  50% {
+    transform: scale(1.2); /* Phóng to lên 20% */
+  }
+  100% {
+    transform: scale(1); /* Quay lại kích thước ban đầu */
   }
 }
